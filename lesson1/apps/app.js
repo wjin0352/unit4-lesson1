@@ -22,11 +22,13 @@ $(function(){
   function showResults(results) {
     var thumbnail_html = "";
     var data_arr = results.items;
-    $.each(data_arr, function(idx, val){
+    var youtube_url = "https://www.youtube.com/watch?v=";
 
-      thumbnail_html += '<img src="' + val.snippet.thumbnails.medium.url + '" style="width:304px;height:228px;">'
-      // console.log(val.snippet.thumbnails.medium.url);
-      // console.log(val.snippet.title);
+    $.each(data_arr, function(idx, val){
+      var url_id = val.snippet.thumbnails.medium.url.split('/')[4];
+      var image_url = val.snippet.thumbnails.medium.url;
+      thumbnail_html += '<a href=' + youtube_url + url_id +' target="_blank"><img src="'+ image_url + '" style="width:304px;height:228px;"></a>'
     });
+
     $('#search-results').html(thumbnail_html);
   }
