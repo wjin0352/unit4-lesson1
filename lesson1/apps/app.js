@@ -1,29 +1,39 @@
 $(function(){
   // getInput();
-  $('#query').on('click', function(e) {
-      e.preventDefault();
-      var searchTerm = $('#input').val();
-      getInput(searchTerm);
-    });
+  $('form').on('submit', function(event) {
+
+      // var result = event.which;
+      // when i put preventDefault here, the input box stopped working.
+      // if (result == 13) {
+        event.preventDefault();
+        var searchTerm = $('#input').val();
+        console.log(searchTerm);
+        getInput(searchTerm);
+      // };
+  // $('#input').on('click', function(event) {
+  //   var searchTerm = $('#input').val();
+  //   console.log(searchTerm);
+  //   getInput(searchTerm);
   });
+});
 
   function getInput(searchTerm) {
     var params = {
-      s: searchTerm,
-      r: 'json'
+      part: 'snippet',
+      key: 'AIzaSyAK5WLqNTz5OoBKBbNiJ8m4OnF5D-RLVXw',
+      q: searchTerm
     };
-    url = "http://www.omdbapi.com";
+    url = "https://www.googleapis.com/youtube/v3/search";
 
     $.getJSON(url, params, function(data) {
-      showResults(data.Search);
+      console.log(data);
+      d = data;
+      showResults(data);
+      console.log(data);
     });
   }
 
   function showResults(results) {
     var html = "";
-    $.each(results, function(idx, val) {
-      html += '<p>' + val.Title + '</p>';
-      $('#search-results').html(html);
-    });
+    console.log(results);
   }
-
