@@ -28,9 +28,7 @@ $(function(){
       var url_id = val.snippet.thumbnails.medium.url.split('/')[4];
       var image_url = val.snippet.thumbnails.medium.url;
       thumbnail_html += '<a href=' + youtube_url + url_id +' target="_blank"><img src="'+ image_url + '" style="width:304px;height:228px;"></a>'
-      // console.log(val.snippet.thumbnails.medium.url);
-      console.log(val.snippet.thumbnails.medium.url.split('/')[4]);
-      console.log(image_url);
     });
+
     $('#search-results').html(thumbnail_html);
   }
