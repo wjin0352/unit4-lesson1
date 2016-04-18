@@ -13,4 +13,9 @@ html {
   margin: 0 auto;
   height: 700px;
   width: 1000px;
+  overflow: scroll;
+}
+
+img {
+  margin: 2% 14px;
 }
