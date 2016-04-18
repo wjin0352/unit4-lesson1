@@ -30,7 +30,7 @@ $(function(){
       // console.log(val.snippet.title);
     });
     console.log(thumbnail_html);
-    $('#search-results').append(thumbnail_html);
+    $('#search-results').html(thumbnail_html);
     // $('#search-results').append('<img src="https://i.ytimg.com/vi/UCNBv7sLwuI/mqdefault.jpg" style="width:304px;height:228px;">')
     console.log(data_arr);
   }
