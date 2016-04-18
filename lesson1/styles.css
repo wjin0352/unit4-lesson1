@@ -1,0 +1,16 @@
+html {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.search-section {
+  /*border: 0.01em solid grey;*/
+  margin: 3% auto;
+  width: 160px;
+}
+
+.results-section {
+  border: 0.01em solid grey;
+  margin: 0 auto;
+  height: 700px;
+  width: 1000px;
+}

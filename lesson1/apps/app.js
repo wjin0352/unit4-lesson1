@@ -1,7 +1,7 @@
 $(function(){
   $('form').on('submit', function(event) {
     event.preventDefault();
-    var searchTerm = $('#input').val();
+    var searchTerm = $('.form-control').val();
     getInput(searchTerm);
   });
 });
