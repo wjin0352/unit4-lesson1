@@ -1,19 +1,8 @@
 $(function(){
-  // getInput();
   $('form').on('submit', function(event) {
-
-      // var result = event.which;
-      // when i put preventDefault here, the input box stopped working.
-      // if (result == 13) {
-        event.preventDefault();
-        var searchTerm = $('#input').val();
-        console.log(searchTerm);
-        getInput(searchTerm);
-      // };
-  // $('#input').on('click', function(event) {
-  //   var searchTerm = $('#input').val();
-  //   console.log(searchTerm);
-  //   getInput(searchTerm);
+    event.preventDefault();
+    var searchTerm = $('.form-control').val();
+    getInput(searchTerm);
   });
 });
 
@@ -26,14 +15,18 @@ $(function(){
     url = "https://www.googleapis.com/youtube/v3/search";
 
     $.getJSON(url, params, function(data) {
-      console.log(data);
-      d = data;
       showResults(data);
-      console.log(data);
     });
   }
 
   function showResults(results) {
-    var html = "";
-    console.log(results);
+    var thumbnail_html = "";
+    var data_arr = results.items;
+    $.each(data_arr, function(idx, val){
+
+      thumbnail_html += '<img src="' + val.snippet.thumbnails.medium.url + '" style="width:304px;height:228px;">'
+      // console.log(val.snippet.thumbnails.medium.url);
+      // console.log(val.snippet.title);
+    });
+    $('#search-results').html(thumbnail_html);
   }
